@@ -33,7 +33,8 @@
             // 
             // lblTeerling
             // 
-            this.lblTeerling.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeerling.BackColor = System.Drawing.Color.Transparent;
+            this.lblTeerling.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeerling.Location = new System.Drawing.Point(24, 15);
             this.lblTeerling.Name = "lblTeerling";
             this.lblTeerling.Size = new System.Drawing.Size(57, 62);
