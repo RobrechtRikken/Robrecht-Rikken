@@ -1,0 +1,11 @@
+D:\MCT 1\MCT 2\Software Engineering\Yatzhee\YahtzeeSpel\bin\Debug\YahtzeeSpel.exe.config
+D:\MCT 1\MCT 2\Software Engineering\Yatzhee\YahtzeeSpel\obj\Debug\Yatzhee.TeerlingUI.resources
+D:\MCT 1\MCT 2\Software Engineering\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.csproj.GenerateResource.Cache
+D:\MCT 1\MCT 2\Software Engineering\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.csprojResolveAssemblyReference.cache
+D:\MCT 1\MCT 2\Software Engineering\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.TeerlingUI.resources
+D:\MCT 1\MCT 2\Software Engineering\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.YahtzeeUI.resources
+C:\Users\Incognyto\Dropbox\Stijn&Robin\Yatzhee\YahtzeeSpel\bin\Debug\YahtzeeSpel.exe.config
+C:\Users\Incognyto\Dropbox\Stijn&Robin\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.csprojResolveAssemblyReference.cache
+C:\Users\Incognyto\Dropbox\Stijn&Robin\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.TeerlingUI.resources
+C:\Users\Incognyto\Dropbox\Stijn&Robin\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.YahtzeeUI.resources
+C:\Users\Incognyto\Dropbox\Stijn&Robin\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.csproj.GenerateResource.Cache
