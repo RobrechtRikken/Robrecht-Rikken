@@ -12,49 +12,61 @@ namespace YahtzeeSpel
     private int aantalWorpen;
     private List<YahtzeeUI> observersList = new List<YahtzeeUI>();
 
-
     public const int MAX_AANTAL_WORPEN = 3;
-    public const int AANTAL_TEERLINGEN = 3;
+    public const int AANTAL_TEERLINGEN = 5;
     
     public Yahtzee()
     {
       teerlingen = new Teerling[AANTAL_TEERLINGEN];
-      
+      for (int i = 0; i < Yahtzee.AANTAL_TEERLINGEN;i++)
+      {
+        teerlingen[i] = new Teerling();
+      }
+      aantalWorpen = 0;
+      observersList = new List<YahtzeeUI>();      
     }
-
     public bool isFinished()
     {
       return aantalWorpen == MAX_AANTAL_WORPEN;
-
     }
-
     public int getAantalWorpen
     {
       get { return aantalWorpen; }
-
     }
-
-    public void getScore()
+    public int getScore()
     {
+      int score = 0;
+      foreach (Teerling teerling in teerlingen)
+      {
+        score += teerling.getAantalOgen;       
+      }
+      return score;     
     }
-
     public Teerling getTeerling(int index)
     {
-
-        //NEEDS TO CHANGE
-        
+      return teerlingen[index];
     }
-
-
     public void werp()
     {
+      if (!isFinished())
+      {
+        foreach (Teerling teerling in teerlingen)
+        {
+          teerling.werp();
+        }
+      }
+      aantalWorpen++;
+      notifyObservers();
     }
-
     public void reset()
     {
-    }
-
-  
+      aantalWorpen = 0;
+      foreach (Teerling teerling in teerlingen)
+      {
+        teerling.maakLos();
+      }
+      notifyObservers();
+    }  
     public void addObserver(YahtzeeUI observer)
     {
       observersList.Add(observer);
@@ -65,7 +77,6 @@ namespace YahtzeeSpel
       {
         y.updateUI();
       }
-
     }
   }
 }

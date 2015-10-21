@@ -18,9 +18,10 @@ namespace YahtzeeSpel
       Yahtzee model = new Yahtzee();
       YahtzeeController controller = new YahtzeeController(model);
       YahtzeeUI ui = controller.getYahtzeeUI();
-      ui.Location = newSystem.Drawing.Point(20, 33);
       this.Controls.Add(ui);
-
+    }
+    private void Form1_Load(object sender, EventArgs e)
+    {
     }
   }
 }

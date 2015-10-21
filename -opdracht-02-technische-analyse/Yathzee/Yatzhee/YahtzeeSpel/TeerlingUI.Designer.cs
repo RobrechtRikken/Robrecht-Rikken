@@ -28,26 +28,28 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.lblTeerling = new System.Windows.Forms.Label();
-      this.SuspendLayout();
-      // 
-      // lblTeerling
-      // 
-      this.lblTeerling.AutoSize = true;
-      this.lblTeerling.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblTeerling.Location = new System.Drawing.Point(59, 32);
-      this.lblTeerling.Name = "lblTeerling";
-      this.lblTeerling.Size = new System.Drawing.Size(0, 76);
-      this.lblTeerling.TabIndex = 0;
-      // 
-      // TeerlingUI
-      // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.Controls.Add(this.lblTeerling);
-      this.Name = "TeerlingUI";
-      this.ResumeLayout(false);
-      this.PerformLayout();
+            this.lblTeerling = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // lblTeerling
+            // 
+            this.lblTeerling.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeerling.Location = new System.Drawing.Point(24, 15);
+            this.lblTeerling.Name = "lblTeerling";
+            this.lblTeerling.Size = new System.Drawing.Size(57, 62);
+            this.lblTeerling.TabIndex = 0;
+            this.lblTeerling.Click += new System.EventHandler(this.lblTeerling_Click);
+            // 
+            // TeerlingUI
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.lblTeerling);
+            this.Name = "TeerlingUI";
+            this.Size = new System.Drawing.Size(110, 114);
+            this.Load += new System.EventHandler(this.TeerlingUI_Load);
+            this.ResumeLayout(false);
 
     }
 

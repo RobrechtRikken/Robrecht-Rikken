@@ -37,7 +37,7 @@
       // lblAantalWorpen
       // 
       this.lblAantalWorpen.AutoSize = true;
-      this.lblAantalWorpen.Location = new System.Drawing.Point(17, 14);
+      this.lblAantalWorpen.Location = new System.Drawing.Point(32, 23);
       this.lblAantalWorpen.Name = "lblAantalWorpen";
       this.lblAantalWorpen.Size = new System.Drawing.Size(81, 13);
       this.lblAantalWorpen.TabIndex = 0;
@@ -46,7 +46,7 @@
       // lblScore
       // 
       this.lblScore.AutoSize = true;
-      this.lblScore.Location = new System.Drawing.Point(17, 38);
+      this.lblScore.Location = new System.Drawing.Point(32, 47);
       this.lblScore.Name = "lblScore";
       this.lblScore.Size = new System.Drawing.Size(69, 13);
       this.lblScore.TabIndex = 1;
@@ -54,7 +54,7 @@
       // 
       // btnWerp
       // 
-      this.btnWerp.Location = new System.Drawing.Point(155, 278);
+      this.btnWerp.Location = new System.Drawing.Point(66, 279);
       this.btnWerp.Name = "btnWerp";
       this.btnWerp.Size = new System.Drawing.Size(98, 41);
       this.btnWerp.TabIndex = 2;
@@ -64,7 +64,7 @@
       // 
       // btnReset
       // 
-      this.btnReset.Location = new System.Drawing.Point(287, 278);
+      this.btnReset.Location = new System.Drawing.Point(198, 279);
       this.btnReset.Name = "btnReset";
       this.btnReset.Size = new System.Drawing.Size(98, 41);
       this.btnReset.TabIndex = 3;

@@ -16,6 +16,9 @@ namespace YahtzeeSpel
     private YahtzeeController controller;
     private TeerlingUI[] teerlingUIs = new TeerlingUI[Yahtzee.AANTAL_TEERLINGEN];
 
+    private const string AANTAL_WORPEN_TEKST = "Aantal worpen: ";
+    private const string SCORE = "Score: ";
+
     public YahtzeeUI(Yahtzee model, YahtzeeController controller)
     {
       InitializeComponent();
@@ -24,7 +27,7 @@ namespace YahtzeeSpel
       for (int i = 0; i < Yahtzee.AANTAL_TEERLINGEN; i++)
       {
         teerlingUIs[i] = this.controller.getTeerlingUI(i);
-        teerlingUIs[i].Location = new System.Drawing.Point(12 + i * 110, 55);
+        teerlingUIs[i].Location = new Point(12 + i * 110, 55);
         this.Controls.Add(this.teerlingUIs[i]);
       }
       updateUI();
@@ -32,21 +35,10 @@ namespace YahtzeeSpel
 
     public void updateUI()
     {
-      lblAantalWorpen.Text = "";
-      lblScore.Text = "";  
-    }
+      lblAantalWorpen.Text = AANTAL_WORPEN_TEKST + model.getAantalWorpen;
+      lblScore.Text = SCORE + model.getScore();  
 
-    private void btnWerp_Click(object sender, EventArgs e)
-    {
-      for (int i = 0; i < Yahtzee.AANTAL_TEERLINGEN; i++)
-      {
-        
-        controller.btnWerpClick();
-      }
-    }
-
-    private void btnReset_Click(object sender, EventArgs e)
-    {
+      //buttons enable/disable
       if (model.isFinished())
       {
         btnReset.Enabled = true;
@@ -57,6 +49,20 @@ namespace YahtzeeSpel
         btnReset.Enabled = false;
         btnWerp.Enabled = true;
       }
+    }
+
+    private void btnWerp_Click(object sender, EventArgs e)
+    {
+     // for (int i = 0; i < Yahtzee.AANTAL_TEERLINGEN; i++)
+      //{
+        
+        controller.btnWerpClick();
+      //}
+    }
+
+    private void btnReset_Click(object sender, EventArgs e)
+    {
+      controller.btnResetClick();
     }
 
 

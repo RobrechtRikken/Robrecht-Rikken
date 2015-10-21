@@ -13,29 +13,23 @@ namespace YahtzeeSpel
     protected bool vast;
 
     private List<TeerlingUI> observersList = new List<TeerlingUI>();
-
-
-
+            
     public Teerling()
     {
-      aantalOgen = 1;
+      aantalOgen = 0; //We hebben nog niet gegooid
       if (generator == null)
       {
         generator = new Random();
       }
     }
-
     public int getAantalOgen
     {
       get { return aantalOgen; }
-
     }
     public bool isVast
     {
       get { return vast; }
-
     }
-
     public void werp()
     {
       if (!vast)
@@ -54,7 +48,6 @@ namespace YahtzeeSpel
       vast = true;
       notifyObservers();
     }
-
     public void addObserver(TeerlingUI observer)
     {
       observersList.Add(observer);
@@ -65,7 +58,6 @@ namespace YahtzeeSpel
       {
         t.updateUI();
       }
-
     }
   }
 }

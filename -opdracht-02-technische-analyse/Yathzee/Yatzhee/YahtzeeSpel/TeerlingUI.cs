@@ -21,21 +21,21 @@ namespace YahtzeeSpel
       teerling1 = t;
       teerController = controller;
     }
-
     private void lblTeerling_Click(object sender, EventArgs e)
     {
-      teerController.lblTeerlingClick();
-      updateUI();
-
-
-    }
-
-   
-
+       teerController.lblTeerlingClick();
+       updateUI();
+      }    
     public void updateUI()
     {
       lblTeerling.Text = teerling1.getAantalOgen.ToString();
-      lblTeerling.BackColor = teerling1.isVast ? Color.Red : Color.Green;  //Dit doet hetzelfde als een if functie als je 1 variabele aanpast -> if teerling1.isvast = true then color.red else color.green
+      lblTeerling.BackColor = teerling1.isVast ? Color.Red : Color.Green; 
+    }
+    private void TeerlingUI_Load(object sender, EventArgs e)
+    {
+    }
+    private void lblTeerling_Click_1(object sender, EventArgs e)
+    {
     }
   }
 }
