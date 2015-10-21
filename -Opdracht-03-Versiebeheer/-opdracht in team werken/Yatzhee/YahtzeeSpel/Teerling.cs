@@ -36,6 +36,7 @@ namespace YahtzeeSpel
       {
         aantalOgen = generator.Next(1, 7);
         notifyObservers();
+          //Updatelist?
       }
     }
     public void maakLos()

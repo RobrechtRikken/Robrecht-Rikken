@@ -11,8 +11,9 @@ namespace YahtzeeSpel
     private Teerling[] teerlingen;
     private int aantalWorpen;
     private List<YahtzeeUI> observersList = new List<YahtzeeUI>();
+   
 
-    public const int MAX_AANTAL_WORPEN = 3;
+    public const int MAX_AANTAL_WORPEN = 2;
     public const int AANTAL_TEERLINGEN = 5;
     
     public Yahtzee()
@@ -35,13 +36,22 @@ namespace YahtzeeSpel
     }
     public int getScore()
     {
+      List<int> ogenArray = new List<int>();
       int score = 0;
+      int ogenAantal = 0;
       foreach (Teerling teerling in teerlingen)
       {
-        score += teerling.getAantalOgen;       
+         
+        score += teerling.getAantalOgen;  
+        //Toevoegen ogen aan lijst
+
+        ogenAantal = teerling.getAantalOgen;
+        ogenArray.Add(ogenAantal);
+       
       }
       return score;     
     }
+
     public Teerling getTeerling(int index)
     {
       return teerlingen[index];
