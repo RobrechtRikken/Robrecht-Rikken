@@ -49,6 +49,7 @@
             this.Controls.Add(this.btnStartGame);
             this.Name = "Chessboard";
             this.Text = "ChessGame";
+            this.Load += new System.EventHandler(this.Chessboard_Load);
             this.ResumeLayout(false);
 
         }

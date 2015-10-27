@@ -13,9 +13,9 @@ namespace ChessGameRR
     public partial class BoardSquare : UserControl
     {
         public int posX, posY;
+        private ChessController controller = new ChessController();
 
-
-        private TileController tC;
+       
        
         public BoardSquare()
         {
@@ -27,8 +27,8 @@ namespace ChessGameRR
 
         private void lblTile_Click(object sender, EventArgs e)
         {
-            tC.lblTileCick();
-            UpdateUI();
+            //tC.lblTileCick();
+            //UpdateUI();
         }
         public void UpdateUI()
         {
@@ -38,6 +38,14 @@ namespace ChessGameRR
 
         private void BoardSquare_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void BoardSquare_Click(object sender, EventArgs e)
+        {
+
+            controller.TileClick(this);
+
 
         }
     }

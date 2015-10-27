@@ -27,5 +27,12 @@ namespace ChessGameRR
             Validate();
         }
 
+        private void Chessboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
     }
 }

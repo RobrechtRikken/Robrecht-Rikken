@@ -82,5 +82,11 @@ namespace ChessGameRR
                 }
             }
         }
+
+        public void TileActivate(BoardSquare Tile)
+        {
+            Console.WriteLine("Testje " + Tile.posX + " " + Tile.posY);
+
+        }
     }
 }

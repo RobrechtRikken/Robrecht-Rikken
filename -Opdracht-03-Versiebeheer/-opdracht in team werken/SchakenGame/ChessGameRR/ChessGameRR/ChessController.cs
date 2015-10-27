@@ -8,13 +8,20 @@ namespace ChessGameRR
 {
     class ChessController
     {
-       
+        Chess mChess = new Chess();   
        
         public void GameStart (Chessboard T)
         {
-            Chess mStart = new Chess();           
-                mStart.NieuwBord(T);
+
+            mChess.NieuwBord(T);
             
         }
+        public void TileClick(BoardSquare B)
+        {
+            mChess.TileActivate(B);
+
+
+        }
+
     }
 }

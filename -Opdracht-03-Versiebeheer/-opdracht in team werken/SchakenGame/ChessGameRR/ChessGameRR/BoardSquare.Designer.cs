@@ -50,6 +50,7 @@
             this.Name = "BoardSquare";
             this.Size = new System.Drawing.Size(75, 75);
             this.Load += new System.EventHandler(this.BoardSquare_Load);
+            this.Click += new System.EventHandler(this.BoardSquare_Click);
             this.ResumeLayout(false);
 
         }
