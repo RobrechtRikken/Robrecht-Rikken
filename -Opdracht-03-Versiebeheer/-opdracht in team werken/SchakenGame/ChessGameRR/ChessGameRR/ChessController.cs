@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ChessGameRR
 {
-    class ChessController
+    public class ChessController
     {
         Chess mChess = new Chess();   
        
         public void GameStart (Chessboard T)
         {
 
-            mChess.NieuwBord(T);
+            mChess.NieuwBord(T, this);
             
         }
         public void TileClick(BoardSquare B)

@@ -13,14 +13,18 @@ namespace ChessGameRR
     public partial class BoardSquare : UserControl
     {
         public int posX, posY;
-        private ChessController controller = new ChessController();
+        public string lblInhoud;
+
+        private ChessController controller;
+
 
        
        
-        public BoardSquare()
+        public BoardSquare(ChessController deController)
         {
             InitializeComponent();
-            
+            lblInhoud = lblTile.Text;
+            controller = deController;
 
         }
 
