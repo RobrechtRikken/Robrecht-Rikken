@@ -14,15 +14,9 @@ namespace ChessGameRR
     {
         public int posX, posY;
 
-        private Tile t;
-        private TileController tC;
-        //public BoardSquare(Tile tile, TileController tController)
-        //{
-        //    InitializeComponent();
-        //    t = tile;
-        //    tC = tController;
 
-        //}
+        private TileController tC;
+       
         public BoardSquare()
         {
             InitializeComponent();

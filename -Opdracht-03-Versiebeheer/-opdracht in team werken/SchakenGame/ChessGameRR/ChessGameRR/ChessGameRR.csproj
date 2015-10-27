@@ -50,15 +50,16 @@
     <Compile Include="BoardSquare.Designer.cs">
       <DependentUpon>BoardSquare.cs</DependentUpon>
     </Compile>
+    <Compile Include="Chess.cs" />
     <Compile Include="Chessboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Chessboard.Designer.cs">
       <DependentUpon>Chessboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChessController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tile.cs" />
     <Compile Include="TileController.cs" />
     <EmbeddedResource Include="BoardSquare.resx">
       <DependentUpon>BoardSquare.cs</DependentUpon>

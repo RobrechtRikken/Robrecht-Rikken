@@ -8,11 +8,11 @@ namespace ChessGameRR
 {
     class TileController
     {
-        Tile myTile;
+        BoardSquare mySquare;
 
-        public TileController(Tile t)
+        public TileController(BoardSquare t)
         {
-            myTile = t;
+            mySquare = t;
         }
         //public BoardSquare getBoardSquareUI()
         //{
