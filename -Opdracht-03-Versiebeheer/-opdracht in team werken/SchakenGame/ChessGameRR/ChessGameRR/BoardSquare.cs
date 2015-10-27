@@ -12,14 +12,21 @@ namespace ChessGameRR
 {
     public partial class BoardSquare : UserControl
     {
+        public int posX, posY;
 
         private Tile t;
         private TileController tC;
-        public BoardSquare(Tile tile, TileController tController)
+        //public BoardSquare(Tile tile, TileController tController)
+        //{
+        //    InitializeComponent();
+        //    t = tile;
+        //    tC = tController;
+
+        //}
+        public BoardSquare()
         {
             InitializeComponent();
-            t = tile;
-            tC = tController;
+            
 
         }
 
@@ -33,6 +40,11 @@ namespace ChessGameRR
         {
             lblTile.Text = "K";
         
+        }
+
+        private void BoardSquare_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

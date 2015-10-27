@@ -14,11 +14,11 @@ namespace ChessGameRR
         {
             myTile = t;
         }
-        public BoardSquare getBoardSquareUI()
-        {
-            BoardSquare bS = new BoardSquare(myTile, this);
-            return bS;
-        }
+        //public BoardSquare getBoardSquareUI()
+        //{
+        //    BoardSquare bS = new BoardSquare(myTile, this);
+        //    return bS;
+        //}
 
         public void lblTileCick()
         { 

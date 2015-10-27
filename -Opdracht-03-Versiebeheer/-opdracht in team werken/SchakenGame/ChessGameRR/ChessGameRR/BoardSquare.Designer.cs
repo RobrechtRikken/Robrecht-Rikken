@@ -35,9 +35,9 @@
             // 
             this.lblTile.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblTile.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTile.Location = new System.Drawing.Point(0, 0);
+            this.lblTile.Location = new System.Drawing.Point(20, 20);
             this.lblTile.Name = "lblTile";
-            this.lblTile.Size = new System.Drawing.Size(75, 75);
+            this.lblTile.Size = new System.Drawing.Size(39, 38);
             this.lblTile.TabIndex = 0;
             this.lblTile.Text = "X";
             this.lblTile.Click += new System.EventHandler(this.lblTile_Click);
@@ -49,6 +49,7 @@
             this.Controls.Add(this.lblTile);
             this.Name = "BoardSquare";
             this.Size = new System.Drawing.Size(75, 75);
+            this.Load += new System.EventHandler(this.BoardSquare_Load);
             this.ResumeLayout(false);
 
         }
