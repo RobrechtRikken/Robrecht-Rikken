@@ -28,25 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTile = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblTile
-            // 
-            this.lblTile.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTile.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTile.Location = new System.Drawing.Point(24, 24);
-            this.lblTile.Name = "lblTile";
-            this.lblTile.Size = new System.Drawing.Size(31, 28);
-            this.lblTile.TabIndex = 0;
-            this.lblTile.Text = "X";
-            this.lblTile.Click += new System.EventHandler(this.lblTile_Click);
             // 
             // BoardSquare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblTile);
             this.Name = "BoardSquare";
             this.Size = new System.Drawing.Size(75, 75);
             this.Load += new System.EventHandler(this.BoardSquare_Load);
@@ -57,6 +44,5 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblTile;
     }
 }

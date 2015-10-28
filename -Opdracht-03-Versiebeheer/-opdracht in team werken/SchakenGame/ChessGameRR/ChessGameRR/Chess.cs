@@ -66,8 +66,9 @@ namespace ChessGameRR
                     switch (chessBoardIntel[i,j])
                     {
                         case "E": chessBoardUI[i, j].BackgroundImage = null; break;
-                        case "wP": chessBoardUI[i, j].BackColor = Color.BlueViolet; break;
-                        case "bP": chessBoardUI[i, j].BackColor = Color.DarkRed; break;
+                        case "wP": chessBoardUI[i, j].BackgroundImage = Image.FromFile("wP.png"); break;
+                        case "bP": chessBoardUI[i, j].BackgroundImage = Image.FromFile("bP.png"); break;
+                      
                     }
 
                 }
@@ -182,6 +183,8 @@ namespace ChessGameRR
                 for (j = 0; j < 8; j++)
                 {
                     DrawCheckers(i, j);
+                
+
                 }             
             }
         }
@@ -198,6 +201,7 @@ namespace ChessGameRR
                 else
                     chessBoardUI[i, j].BackColor = Color.Black;
         }
+       
         //public void Change(int i, int j)
         //{
         //    chessBoardIntel[i, j] = chessBoardIntel[I, J];

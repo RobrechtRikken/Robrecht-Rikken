@@ -9,6 +9,7 @@ namespace ChessGameRR
     public class ChessController
     {
         Chess mChess = new Chess();   
+        
        
         public void GameStart (Chessboard T)
         {

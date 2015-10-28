@@ -23,7 +23,7 @@ namespace ChessGameRR
         public BoardSquare(ChessController deController)
         {
             InitializeComponent();
-            lblInhoud = lblTile.Text;
+            
             controller = deController;
 
         }
@@ -36,13 +36,13 @@ namespace ChessGameRR
         }
         public void UpdateUI()
         {
-            lblTile.Text = "K";
+            
         
         }
 
         private void BoardSquare_Load(object sender, EventArgs e)
         {
-
+          
         }
 
         private void BoardSquare_Click(object sender, EventArgs e)
