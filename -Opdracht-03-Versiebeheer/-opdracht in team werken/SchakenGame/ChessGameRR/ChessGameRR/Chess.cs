@@ -14,8 +14,7 @@ namespace ChessGameRR
      public   string[,] chessBoardIntel;
      public BoardSquare[,] chessBoardUI;
      public int[,] locations;
-     public bool whiteTurn = true;
-      
+     public bool whiteTurn = true;    
       public  bool isTileActivated = false;
         public Color savedColor;
 
@@ -87,36 +86,39 @@ namespace ChessGameRR
                         if (locations[i, j] == 3)
                             chessBoardUI[i, j].BackColor = Color.Blue;
                     }
-
-
-
                 }
             }
 
         public void TileActivate(BoardSquare Tile)
-        {
-           
-
-
+        {        
             //Opvragen locations voor aangeklikte stuk
-
             int i, j;
             i = Tile.posY;
             j = Tile.posX;
             switch (locations[i, j])
             {
-                case 1: SpeelStuk(chessBoardIntel[i, j], i, j);
-                    I = i;
-                    J = j; break;
+                case 1:
+                    if (!isTileActivated)
+                    {
+                        SpeelStuk(chessBoardIntel[i, j], i, j);
+                        Activate();
+                        I = i;
+                        J = j; 
+                    }
+                    break;
+                case 3:
+                    if (isTileActivated)
+                    {
+                        validate();
+                        Activate();
+                    }
+                    break;
 
-                case 3: validate(); break;
-
-                case 2: change(i, j); break;
+                case 2: change(i, j);
+                    Activate();
+                    break;
             }
-
-
-
-            //SpeelStuk(chessBoardIntel[Tile.posY, Tile.posX].ToString(), Tile.posY, Tile.posX);
+            
         }
         public void SpeelStuk(string stuk, int x, int y)
         {
@@ -124,37 +126,41 @@ namespace ChessGameRR
                     switch (stuk)
                     {
                         case "wP":
-                       if (y - 1 >= 0)
-                           if (chessBoardIntel[x - 1, y - 1].Substring(0, 1) == "b")
-                            locations[x - 1, y - 1] = 2;
-                    if (chessBoardIntel[x - 1, y] == "E")
-                        locations[x - 1, y] = 2;
-                    if (y + 1 < 8)
-                        if (chessBoardIntel[x - 1, y + 1].Substring(0, 1) == "b")
-                            locations[x - 1, y + 1] = 2;
-                    if (x == 6)
-                        if (chessBoardIntel[x - 2, y] == "E")
-                            locations[x - 2, y] = 2;
+                            if (whiteTurn)
+                            {
+                                if (y - 1 >= 0)
+                                    if (chessBoardIntel[x - 1, y - 1].Substring(0, 1) == "b")
+                                        locations[x - 1, y - 1] = 2;
+                                if (chessBoardIntel[x - 1, y] == "E")
+                                    locations[x - 1, y] = 2;
+                                if (y + 1 < 8)
+                                    if (chessBoardIntel[x - 1, y + 1].Substring(0, 1) == "b")
+                                        locations[x - 1, y + 1] = 2;
+                                if (x == 6)
+                                    if (chessBoardIntel[x - 2, y] == "E")
+                                        locations[x - 2, y] = 2;
+                            }
                     break;
 
 
                   
                         case "bP":
-                            if (y - 1 >= 0)
-                                if (chessBoardIntel[x + 1, y - 1].Substring(0, 1) == "w")
-                                    locations[x + 1, y - 1] = 2;
-                            if (chessBoardIntel[x + 1, y] == "E")
-                                locations[x + 1, y] = 2;
-                            if (y + 1 < 8)
-                                if (chessBoardIntel[x + 1, y + 1].Substring(0, 1) == "w")
-                                    locations[x + 1, y + 1] = 2;
-                            if (x == 1)
-                                if (chessBoardIntel[x + 2, y] == "E")
-                                    locations[x + 2, y] = 2;
-                            break;
-
-
-                      
+                    if (!whiteTurn)
+                    {
+                        if (y - 1 >= 0)
+                            if (chessBoardIntel[x + 1, y - 1].Substring(0, 1) == "w")
+                                locations[x + 1, y - 1] = 2;
+                        if (chessBoardIntel[x + 1, y] == "E")
+                            locations[x + 1, y] = 2;
+                        if (y + 1 < 8)
+                            if (chessBoardIntel[x + 1, y + 1].Substring(0, 1) == "w")
+                                locations[x + 1, y + 1] = 2;
+                        if (x == 1)
+                            if (chessBoardIntel[x + 2, y] == "E")
+                                locations[x + 2, y] = 2;
+                    }
+                        break;
+                                    
                     }
                     locations[x, y] = 3;
                     drawing();
@@ -178,8 +184,7 @@ namespace ChessGameRR
             {
                 for (j = 0; j < 8; j++)
                 {
-                    DrawCheckers(i, j);
-                
+                    DrawCheckers(i, j);      
 
                 }             
             }
@@ -203,8 +208,31 @@ namespace ChessGameRR
 
             chessBoardIntel[i, j] = chessBoardIntel[I, J];
             chessBoardIntel[I, J] = "E";
+            ChangeTurn();
             validate();
             drawing();
+        }
+        public void ChangeTurn()
+        { 
+        if (whiteTurn)
+        {
+            whiteTurn = false;
+        }
+        else
+        {
+            whiteTurn = true;
+        }
+        }
+        public void Activate()
+        {
+            if (isTileActivated)
+            {
+                isTileActivated = false;
+            }
+            else
+            {
+                isTileActivated = true;
+            }
         }
     }
 }
