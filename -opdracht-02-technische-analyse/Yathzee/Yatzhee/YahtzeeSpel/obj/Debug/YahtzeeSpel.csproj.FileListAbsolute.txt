@@ -58,3 +58,10 @@ D:\Dropbox\Dropbox\Ik en robin XXX\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.csp
 D:\School 2015-2016\Software Engineering\Robrecht-Rikken\-opdracht-02-technische-analyse\Yathzee\Yatzhee\YahtzeeSpel\bin\Debug\YahtzeeSpel.exe.config
 D:\School 2015-2016\Software Engineering\Robrecht-Rikken\-opdracht-02-technische-analyse\Yathzee\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.exe
 D:\School 2015-2016\Software Engineering\Robrecht-Rikken\-opdracht-02-technische-analyse\Yathzee\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.pdb
+D:\School 2015-2016\Software Engineering\Robrecht-Rikken\-opdracht-02-technische-analyse\Yathzee\Yatzhee\YahtzeeSpel\bin\Debug\YahtzeeSpel.exe
+D:\School 2015-2016\Software Engineering\Robrecht-Rikken\-opdracht-02-technische-analyse\Yathzee\Yatzhee\YahtzeeSpel\bin\Debug\YahtzeeSpel.pdb
+D:\School 2015-2016\Software Engineering\Robrecht-Rikken\-opdracht-02-technische-analyse\Yathzee\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.csprojResolveAssemblyReference.cache
+D:\School 2015-2016\Software Engineering\Robrecht-Rikken\-opdracht-02-technische-analyse\Yathzee\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.Form1.resources
+D:\School 2015-2016\Software Engineering\Robrecht-Rikken\-opdracht-02-technische-analyse\Yathzee\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.TeerlingUI.resources
+D:\School 2015-2016\Software Engineering\Robrecht-Rikken\-opdracht-02-technische-analyse\Yathzee\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.YahtzeeUI.resources
+D:\School 2015-2016\Software Engineering\Robrecht-Rikken\-opdracht-02-technische-analyse\Yathzee\Yatzhee\YahtzeeSpel\obj\Debug\YahtzeeSpel.csproj.GenerateResource.Cache

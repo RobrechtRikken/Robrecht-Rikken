@@ -60,6 +60,12 @@
     <Compile Include="ChessController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreBord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ScoreBord.Designer.cs">
+      <DependentUpon>ScoreBord.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BoardSquare.resx">
       <DependentUpon>BoardSquare.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +81,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ScoreBord.resx">
+      <DependentUpon>ScoreBord.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
