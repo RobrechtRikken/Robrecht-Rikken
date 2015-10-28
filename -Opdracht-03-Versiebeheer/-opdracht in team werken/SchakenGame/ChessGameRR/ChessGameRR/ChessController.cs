@@ -33,15 +33,11 @@ namespace ChessGameRR
             {
                 board.UpdateTurn("BLACK TURN");
             }
-
-        }
-
+        }       
         public void UpdateScore(string doodStuk, ScoreBord scoreBordje)
         {
             hetScorebord = scoreBordje;
-            hetScorebord.addScore(doodStuk);
-          
-
+            hetScorebord.addScore(doodStuk); 
         }
     }
 }

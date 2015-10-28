@@ -31,6 +31,7 @@ namespace ChessGameRR
         private void lblTurn_Click(object sender, EventArgs e)
         {
         }
+        //geeft in label aan wie aan de beurt is
         public void UpdateTurn(string turn)
         {
             lblTurn.Text = turn;

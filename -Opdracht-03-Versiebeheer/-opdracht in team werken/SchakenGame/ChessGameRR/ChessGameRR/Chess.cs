@@ -327,6 +327,7 @@ namespace ChessGameRR
         //verschuift het speelstuk naar de toegankelijke locatie
         public void change(int i, int j)
         {
+            //kijkt of het aangeduide tile een vijandelijke speler bevat en roept dan de addscore methode op
             if (locations[i, j] == 2 && chessBoardIntel[i, j].Substring(0, 1) == "w" || chessBoardIntel[i, j].Substring(0, 1) == "b")
             {
                 addScore(chessBoardIntel[i, j]); 
@@ -363,6 +364,7 @@ namespace ChessGameRR
                 isTileActivated = true;
             }
         }
+        //zorgt dat het dode stuk wordt doorgegeven aan de controller
         public void addScore(string doodStuk)
         {
             controller.UpdateScore(doodStuk,scoreBord );

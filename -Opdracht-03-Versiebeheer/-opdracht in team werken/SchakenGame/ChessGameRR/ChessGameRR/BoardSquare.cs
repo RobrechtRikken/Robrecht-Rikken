@@ -14,43 +14,20 @@ namespace ChessGameRR
     {
         public int posX, posY;
         public string lblInhoud;
-
-        private ChessController controller;
-
-
-       
-       
+        private ChessController controller;  
+        //contructor
         public BoardSquare(ChessController deController)
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
             controller = deController;
-
-        }
-
-
-        private void lblTile_Click(object sender, EventArgs e)
-        {
-            //tC.lblTileCick();
-            //UpdateUI();
-        }
-        public void UpdateUI()
-        {
-            
-        
-        }
-
+        }       
         private void BoardSquare_Load(object sender, EventArgs e)
-        {
-          
+        {          
         }
-
+        //click event tile
         private void BoardSquare_Click(object sender, EventArgs e)
         {
-
             controller.TileClick(this);
-
-
         }
     }
 }
