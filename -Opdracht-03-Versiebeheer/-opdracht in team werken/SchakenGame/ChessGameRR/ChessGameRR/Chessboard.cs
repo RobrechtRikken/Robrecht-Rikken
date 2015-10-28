@@ -22,10 +22,18 @@ namespace ChessGameRR
             //star spel en deactiveert knop
             controller.GameStart(this);
             btnStartGame.Enabled = false;
+            lblTurn.Enabled = true;
             Validate();
         }
         private void Chessboard_Load(object sender, EventArgs e)
         {
+        }
+        private void lblTurn_Click(object sender, EventArgs e)
+        {
+        }
+        public void UpdateTurn(string turn)
+        {
+            lblTurn.Text = turn;
         }
     }
 }

@@ -16,9 +16,11 @@ namespace ChessGameRR
      public int[,] locations;
      public bool whiteTurn = true;    
      public  bool isTileActivated = false;
+     ChessController controller;
         //methode nieuw bord aanmaken
             public void NieuwBord(Chessboard T, ChessController deController)
             {
+                controller = deController;
             //Aanmaken bord intel
             chessBoardIntel = new string[8, 8]{
             {"bP","bP","bP","bP","bP","bP","bP","bP" },
@@ -215,10 +217,12 @@ namespace ChessGameRR
         if (whiteTurn)
         {
             whiteTurn = false;
+            controller.UpdateUi(whiteTurn);
         }
         else
         {
             whiteTurn = true;
+            controller.UpdateUi(whiteTurn);
         }
         }
         //houd bij of een tile geactiveerd is of niet
