@@ -14,6 +14,7 @@ namespace ChessGameRR
      public   string[,] chessBoardIntel;
      public BoardSquare[,] chessBoardUI;
      public int[,] locations;
+     public bool whiteTurn = true;
       
       public  bool isTileActivated = false;
         public Color savedColor;
@@ -134,25 +135,32 @@ namespace ChessGameRR
                     //    if (chessBoardIntel[x - 2, y] == "E")
                     //        locations[x - 2, y] = 2;
 
-                    chessBoardIntel[x, y] = "X";
-                    chessBoardIntel[x- 1 , y] = "wP";
-                    drawing();
 
-
-
+                    if (chessBoardIntel[x - 1, y] == "E" && whiteTurn == true)
+                    {
+                        chessBoardIntel[x, y] = "E";
+                        chessBoardIntel[x - 1, y] = "wP";
+                        whiteTurn = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Can't move ==> something is in the way");
+                    }
+                   drawing();
                     break;
+
                 case "bP": 
-                    if (y - 1 >= 0)
-                        if (chessBoardIntel[x + 1, y - 1].Substring(0,1) == "w")
-                            locations[x + 1, y - 1] = 2;
-                    if (chessBoardIntel[x + 1, y] == "E")
-                        locations[x + 1, y] = 2;
-                    if (y + 1 < 8)
-                        if (chessBoardIntel[x + 1, y + 1].Substring(0, 1) == "w")
-                            locations[x + 1, y + 1] = 2;
-                    if (x == 1)
-                        if (chessBoardIntel[x + 2, y] == "E")
-                            locations[x + 2, y] = 2;
+                     if (chessBoardIntel[x + 1, y] == "E" && whiteTurn == false)
+                    {
+                        chessBoardIntel[x, y] = "E";
+                        chessBoardIntel[x + 1, y] = "bP";
+                        whiteTurn = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Can't move ==> something is in the way");
+                    }
+                   drawing();
                     break;
             }
             validate();
