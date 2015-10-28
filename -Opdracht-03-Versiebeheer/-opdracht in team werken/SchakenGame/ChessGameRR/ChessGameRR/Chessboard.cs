@@ -12,27 +12,20 @@ namespace ChessGameRR
 {
     public partial class Chessboard : Form
     {
-        ChessController controller = new ChessController( );
-
+        ChessController controller = new ChessController();
         public Chessboard()
         {
             InitializeComponent();
-            
-
         }
-
         private void btnStartGame_Click(object sender, EventArgs e)
         {
+            //star spel en deactiveert knop
             controller.GameStart(this);
+            btnStartGame.Enabled = false;
             Validate();
         }
-
         private void Chessboard_Load(object sender, EventArgs e)
         {
-
         }
-
-       
-
     }
 }

@@ -9,16 +9,14 @@ namespace ChessGameRR
 {
     class Chess
     {
-        int I, J;
-      
+        //klassenvariabelen
+     int I, J;      
      public   string[,] chessBoardIntel;
      public BoardSquare[,] chessBoardUI;
      public int[,] locations;
      public bool whiteTurn = true;    
-      public  bool isTileActivated = false;
-        public Color savedColor;
-
-            
+     public  bool isTileActivated = false;
+        //methode nieuw bord aanmaken
             public void NieuwBord(Chessboard T, ChessController deController)
             {
             //Aanmaken bord intel
@@ -31,11 +29,11 @@ namespace ChessGameRR
             {"E","E","E","E","E","E","E","E" },
             {"wP","wP","wP","wP","wP","wP","wP","wP" },
             {"wP","wP","wP","wP","wP","wP","wP","wP" }};
-
-            //Aanmaken boardsquares
+            //Aanmaken boardsquares array
             chessBoardUI = new BoardSquare[8, 8];
+            //aanmaken mogelijke zetten array
             locations = new int[8, 8];
-
+            //aanmaken boardsquares
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
@@ -46,15 +44,14 @@ namespace ChessGameRR
                     chessBoardUI[i, j].posX = j;
                     chessBoardUI[i, j].posY = i;
                     chessBoardUI[i, j].Size = new Size(75, 75);
-
                     //black/white                 
                     DrawCheckers(i, j);
                 }
             }
             validate();
             drawing();
-
         }
+        //tekent images van speelstukken en kent kleuren toe aan vakken
             public void drawing()
             {
                 //Plaatjes toekennen aan elk stuk
@@ -67,28 +64,29 @@ namespace ChessGameRR
                             case "E": chessBoardUI[i, j].BackgroundImage = null; break;
                             case "wP": chessBoardUI[i, j].BackgroundImage = Image.FromFile("../../Pics/wP.png"); break;
                             case "bP": chessBoardUI[i, j].BackgroundImage = Image.FromFile("../../Pics/bP.png"); break;
-
                         }
-
                     }
                 }
-
                 //Achtergrondkleuk van mogelijke zetten activeren
                 for (int i = 0; i < 8; i++)
                 {
                     for (int j = 0; j < 8; j++)
                     {
                         if (locations[i, j] == 2)
-                            chessBoardUI[i, j].BackColor = Color.Green;
+                        {
+                            chessBoardUI[i, j].BackColor = Color.ForestGreen;
+                        }
                         else
+                        {
                             DrawCheckers(i, j);
-
+                        }
                         if (locations[i, j] == 3)
-                            chessBoardUI[i, j].BackColor = Color.Blue;
+                        {
+                            chessBoardUI[i, j].BackColor = Color.Orange;
+                        }
                     }
                 }
             }
-
         public void TileActivate(BoardSquare Tile)
         {        
             //Opvragen locations voor aangeklikte stuk
@@ -97,6 +95,7 @@ namespace ChessGameRR
             j = Tile.posX;
             switch (locations[i, j])
             {
+                    //nieuw speelstuk activeren
                 case 1:
                     if (!isTileActivated)
                     {
@@ -106,6 +105,11 @@ namespace ChessGameRR
                         J = j; 
                     }
                     break;
+                    //geactiveerde speelstuk naar mogelijke locatie brengen
+                case 2: change(i, j);
+                    Activate();
+                    break;                   
+                //geactiveerde speelstuk deactiveren
                 case 3:
                     if (isTileActivated)
                     {
@@ -113,18 +117,15 @@ namespace ChessGameRR
                         Activate();
                     }
                     break;
-
-                case 2: change(i, j);
-                    Activate();
-                    break;
-            }
-            
+            }            
         }
+        //methode om te zien welk speelstuk is geactiveerd en mogelijke zetten van dat speelstuk
         public void SpeelStuk(string stuk, int x, int y)
         {
             int c;
                     switch (stuk)
                     {
+                            //witte pion
                         case "wP":
                             if (whiteTurn)
                             {
@@ -141,9 +142,7 @@ namespace ChessGameRR
                                         locations[x - 2, y] = 2;
                             }
                     break;
-
-
-                  
+                            //zwarte pion                  
                         case "bP":
                     if (!whiteTurn)
                     {
@@ -159,14 +158,13 @@ namespace ChessGameRR
                             if (chessBoardIntel[x + 2, y] == "E")
                                 locations[x + 2, y] = 2;
                     }
-                        break;
-                                    
+                        break;                                    
                     }
+            //zorgt dat aangeklikte speelstuk wordt geactiveerd
                     locations[x, y] = 3;
-                    drawing();
-            
+                    drawing();            
         }
-        
+        //valideert het bord
         public void validate()
         {
             int i, j;
@@ -179,16 +177,16 @@ namespace ChessGameRR
                     else
                         locations[i, j] = 0;
                 }
-
+            //tekent voor elke vak zijn juiste bord kleur
             for (i = 0; i < 8; i++)
             {
                 for (j = 0; j < 8; j++)
                 {
-                    DrawCheckers(i, j);      
-
+                    DrawCheckers(i, j);   
                 }             
             }
         }
+        //tekent de zwarte en witte vakken
         public void DrawCheckers(int i, int j)
         {
             if (i % 2 == 0)
@@ -202,16 +200,16 @@ namespace ChessGameRR
                 else
                     chessBoardUI[i, j].BackColor = Color.Black;
         }
-
+        //verschuift het speelstuk naar de toegankelijke locatie
         public void change(int i, int j)
         {
-
             chessBoardIntel[i, j] = chessBoardIntel[I, J];
             chessBoardIntel[I, J] = "E";
             ChangeTurn();
             validate();
             drawing();
         }
+        //zet de beurtwisseling variabele om
         public void ChangeTurn()
         { 
         if (whiteTurn)
@@ -223,6 +221,7 @@ namespace ChessGameRR
             whiteTurn = true;
         }
         }
+        //houd bij of een tile geactiveerd is of niet
         public void Activate()
         {
             if (isTileActivated)
