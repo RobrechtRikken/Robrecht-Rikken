@@ -9,7 +9,7 @@ namespace ChessGameRR
 {
     class Chess
     {
-         
+        int I, J;
       
      public   string[,] chessBoardIntel;
      public BoardSquare[,] chessBoardUI;
@@ -56,128 +56,124 @@ namespace ChessGameRR
             drawing();
 
         }
-        public void drawing()
-        {
-
-            for (int i = 0; i < 8; i++)
+            public void drawing()
             {
-                for (int j = 0; j < 8; j++)
+                //Plaatjes toekennen aan elk stuk
+                for (int i = 0; i < 8; i++)
                 {
-                    switch (chessBoardIntel[i,j])
+                    for (int j = 0; j < 8; j++)
                     {
-                        case "E": chessBoardUI[i, j].BackgroundImage = null; break;
-                        case "wP": chessBoardUI[i, j].BackgroundImage = Image.FromFile("wP.png"); break;
-                        case "bP": chessBoardUI[i, j].BackgroundImage = Image.FromFile("bP.png"); break;
-                      
+                        switch (chessBoardIntel[i, j])
+                        {
+                            case "E": chessBoardUI[i, j].BackgroundImage = null; break;
+                            case "wP": chessBoardUI[i, j].BackgroundImage = Image.FromFile("../../Pics/wP.png"); break;
+                            case "bP": chessBoardUI[i, j].BackgroundImage = Image.FromFile("../../Pics/bP.png"); break;
+
+                        }
+
                     }
+                }
+
+                //Achtergrondkleuk van mogelijke zetten activeren
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if (locations[i, j] == 2)
+                            chessBoardUI[i, j].BackColor = Color.Green;
+                        else
+                            DrawCheckers(i, j);
+
+                        if (locations[i, j] == 3)
+                            chessBoardUI[i, j].BackColor = Color.Blue;
+                    }
+
+
 
                 }
             }
-        }
 
         public void TileActivate(BoardSquare Tile)
         {
-            ////Console.WriteLine("Testje " + Tile.posX + " " + Tile.posY);
-
-            //int x, y;
-            //x = Tile.posX;
-            //y = Tile.posY;
-            //    switch (locations[x, y])
-            //    {
-            //        case 1:
-            //            SpeelStuk(chessBoardIntel[x, y], x, y);
-            //            I = x;
-            //                J=y;
-            //            break;
-            //        case 2:
-            //            Change(x, y);
-            //            break;
-            //        case 3:                      
-            //            validate();
-            //            break;
-            //    }
-
-            //if (isTileActivated == false)
-            //{
-            //    savedColor = Tile.BackColor;
-            //    Tile.BackColor = Color.Turquoise;
-            //    isTileActivated = true;
-            //}
-            //else
-            //{
-            //    Tile.BackColor = savedColor;
-
-            //    isTileActivated = false;
-
-            //}
-
-            //Console.WriteLine("test");
-            //string ikke = chessBoardIntel[1, 2];
-            //Console.WriteLine(ikke);
+           
 
 
+            //Opvragen locations voor aangeklikte stuk
 
-            SpeelStuk(chessBoardIntel[Tile.posY, Tile.posX].ToString(), Tile.posY, Tile.posX);
-        }
-        public void SpeelStuk(string stuk, int x , int y)
-        {
-            switch (stuk)
+            int i, j;
+            i = Tile.posY;
+            j = Tile.posX;
+            switch (locations[i, j])
             {
-                case "wP": 
-                    //   if (y - 1 >= 0)
-                    //       if (chessBoardIntel[x - 1, y - 1].Substring(0, 1) == "b")
-                    //        locations[x - 1, y - 1] = 2;
-                    //if (chessBoardIntel[x - 1, y] == "E")
-                    //    locations[x - 1, y] = 2;
-                    //if (y + 1 < 8)
-                    //    if (chessBoardIntel[x - 1, y + 1].Substring(0, 1) == "b")
-                    //        locations[x - 1, y + 1] = 2;
-                    //if (x == 6)
-                    //    if (chessBoardIntel[x - 2, y] == "E")
-                    //        locations[x - 2, y] = 2;
+                case 1: SpeelStuk(chessBoardIntel[i, j], i, j);
+                    I = i;
+                    J = j; break;
 
+                case 3: validate(); break;
 
-                    if (chessBoardIntel[x - 1, y] == "E" && whiteTurn == true)
-                    {
-                        chessBoardIntel[x, y] = "E";
-                        chessBoardIntel[x - 1, y] = "wP";
-                        whiteTurn = false;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Can't move ==> something is in the way");
-                    }
-                   drawing();
-                    break;
-
-                case "bP": 
-                     if (chessBoardIntel[x + 1, y] == "E" && whiteTurn == false)
-                    {
-                        chessBoardIntel[x, y] = "E";
-                        chessBoardIntel[x + 1, y] = "bP";
-                        whiteTurn = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Can't move ==> something is in the way");
-                    }
-                   drawing();
-                    break;
+                case 2: change(i, j); break;
             }
-            validate();
-            drawing();
+
+
+
+            //SpeelStuk(chessBoardIntel[Tile.posY, Tile.posX].ToString(), Tile.posY, Tile.posX);
         }
+        public void SpeelStuk(string stuk, int x, int y)
+        {
+            int c;
+                    switch (stuk)
+                    {
+                        case "wP":
+                       if (y - 1 >= 0)
+                           if (chessBoardIntel[x - 1, y - 1].Substring(0, 1) == "b")
+                            locations[x - 1, y - 1] = 2;
+                    if (chessBoardIntel[x - 1, y] == "E")
+                        locations[x - 1, y] = 2;
+                    if (y + 1 < 8)
+                        if (chessBoardIntel[x - 1, y + 1].Substring(0, 1) == "b")
+                            locations[x - 1, y + 1] = 2;
+                    if (x == 6)
+                        if (chessBoardIntel[x - 2, y] == "E")
+                            locations[x - 2, y] = 2;
+                    break;
+
+
+                  
+                        case "bP":
+                            if (y - 1 >= 0)
+                                if (chessBoardIntel[x + 1, y - 1].Substring(0, 1) == "w")
+                                    locations[x + 1, y - 1] = 2;
+                            if (chessBoardIntel[x + 1, y] == "E")
+                                locations[x + 1, y] = 2;
+                            if (y + 1 < 8)
+                                if (chessBoardIntel[x + 1, y + 1].Substring(0, 1) == "w")
+                                    locations[x + 1, y + 1] = 2;
+                            if (x == 1)
+                                if (chessBoardIntel[x + 2, y] == "E")
+                                    locations[x + 2, y] = 2;
+                            break;
+
+
+                      
+                    }
+                    locations[x, y] = 3;
+                    drawing();
+            
+        }
+        
         public void validate()
         {
-            int i, j;        
-            //for (i = 0; i < 8; i++)
-            //    for (j = 0; j < 8; j++)
-            //    {
-            //        if (chessBoardIntel[i, j] != "E")
-            //            locations[i, j] = 1;
-            //        else
-            //            locations[i, j] = 0;
-            //    }
+            int i, j;
+            //Kijken welke vakjes toegankelijk zijn
+            for (i = 0; i < 8; i++)
+                for (j = 0; j < 8; j++)
+                {
+                    if (chessBoardIntel[i, j] != "E")
+                        locations[i, j] = 1;
+                    else
+                        locations[i, j] = 0;
+                }
+
             for (i = 0; i < 8; i++)
             {
                 for (j = 0; j < 8; j++)
@@ -201,14 +197,14 @@ namespace ChessGameRR
                 else
                     chessBoardUI[i, j].BackColor = Color.Black;
         }
-       
-        //public void Change(int i, int j)
-        //{
-        //    chessBoardIntel[i, j] = chessBoardIntel[I, J];
 
-        //    chessBoardIntel[I, J] = "E";
-        //    validate();
-        //    drawing();
-        //}
+        public void change(int i, int j)
+        {
+
+            chessBoardIntel[i, j] = chessBoardIntel[I, J];
+            chessBoardIntel[I, J] = "E";
+            validate();
+            drawing();
+        }
     }
 }
