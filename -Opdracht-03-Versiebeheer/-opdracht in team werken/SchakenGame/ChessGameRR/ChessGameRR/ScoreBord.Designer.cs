@@ -30,6 +30,8 @@
         {
             this.lblBlack = new System.Windows.Forms.Label();
             this.lblWhite = new System.Windows.Forms.Label();
+            this.txtBlackLost = new System.Windows.Forms.TextBox();
+            this.txtWhiteLost = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblBlack
@@ -50,14 +52,33 @@
             this.lblWhite.TabIndex = 1;
             this.lblWhite.Text = "White lost";
             // 
+            // txtBlackLost
+            // 
+            this.txtBlackLost.Location = new System.Drawing.Point(27, 32);
+            this.txtBlackLost.Multiline = true;
+            this.txtBlackLost.Name = "txtBlackLost";
+            this.txtBlackLost.Size = new System.Drawing.Size(83, 106);
+            this.txtBlackLost.TabIndex = 2;
+            // 
+            // txtWhiteLost
+            // 
+            this.txtWhiteLost.Location = new System.Drawing.Point(24, 388);
+            this.txtWhiteLost.Multiline = true;
+            this.txtWhiteLost.Name = "txtWhiteLost";
+            this.txtWhiteLost.Size = new System.Drawing.Size(83, 106);
+            this.txtWhiteLost.TabIndex = 3;
+            // 
             // ScoreBord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtWhiteLost);
+            this.Controls.Add(this.txtBlackLost);
             this.Controls.Add(this.lblWhite);
             this.Controls.Add(this.lblBlack);
             this.Name = "ScoreBord";
-            this.Size = new System.Drawing.Size(189, 559);
+            this.Size = new System.Drawing.Size(137, 559);
+            this.Load += new System.EventHandler(this.ScoreBord_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -67,5 +88,7 @@
 
         private System.Windows.Forms.Label lblBlack;
         private System.Windows.Forms.Label lblWhite;
+        private System.Windows.Forms.TextBox txtBlackLost;
+        private System.Windows.Forms.TextBox txtWhiteLost;
     }
 }

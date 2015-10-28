@@ -10,6 +10,7 @@ namespace ChessGameRR
     {
         Chess mChess = new Chess();
         Chessboard board;
+        ScoreBord hetScorebord;
         public void GameStart (Chessboard T)
         {
             //nieuw bord starten en controller meegeven
@@ -32,6 +33,15 @@ namespace ChessGameRR
             {
                 board.UpdateTurn("BLACK TURN");
             }
+
+        }
+
+        public void UpdateScore(string doodStuk, ScoreBord scoreBordje)
+        {
+            hetScorebord = scoreBordje;
+            hetScorebord.addScore(doodStuk);
+          
+
         }
     }
 }

@@ -13,6 +13,7 @@ namespace ChessGameRR
      int I, J;      
      public   string[,] chessBoardIntel;
      public BoardSquare[,] chessBoardUI;
+     public ScoreBord scoreBord;
      public int[,] locations;
      public bool whiteTurn = true;    
      public  bool isTileActivated = false;
@@ -50,6 +51,11 @@ namespace ChessGameRR
                     DrawCheckers(i, j);
                 }
             }
+                //SCorebord aanmaken om te tonen op het formulier
+            scoreBord = new ScoreBord(deController);
+            scoreBord.Parent = T;
+            scoreBord.Location = new Point(675,75);
+
             validate();
             drawing();
         }
@@ -321,6 +327,10 @@ namespace ChessGameRR
         //verschuift het speelstuk naar de toegankelijke locatie
         public void change(int i, int j)
         {
+            if (locations[i, j] == 2 && chessBoardIntel[i, j].Substring(0, 1) == "w" || chessBoardIntel[i, j].Substring(0, 1) == "b")
+            {
+                addScore(chessBoardIntel[i, j]); 
+            }
             chessBoardIntel[i, j] = chessBoardIntel[I, J];
             chessBoardIntel[I, J] = "E";
             ChangeTurn();
@@ -352,6 +362,10 @@ namespace ChessGameRR
             {
                 isTileActivated = true;
             }
+        }
+        public void addScore(string doodStuk)
+        {
+            controller.UpdateScore(doodStuk,scoreBord );
         }
     }
 }

@@ -45,13 +45,13 @@
             // lblTurn
             // 
             this.lblTurn.AutoSize = true;
-            this.lblTurn.Enabled = false;
             this.lblTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTurn.Location = new System.Drawing.Point(316, 18);
             this.lblTurn.Name = "lblTurn";
             this.lblTurn.Size = new System.Drawing.Size(105, 17);
             this.lblTurn.TabIndex = 1;
             this.lblTurn.Text = "WHITE TURN";
+            this.lblTurn.Visible = false;
             this.lblTurn.Click += new System.EventHandler(this.lblTurn_Click);
             // 
             // Chessboard
