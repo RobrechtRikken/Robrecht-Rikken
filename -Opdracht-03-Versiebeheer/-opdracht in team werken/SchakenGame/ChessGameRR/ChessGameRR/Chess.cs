@@ -23,14 +23,14 @@ namespace ChessGameRR
                 controller = deController;
             //Aanmaken bord intel
             chessBoardIntel = new string[8, 8]{
-            {"bP","bP","bP","bP","bP","bP","bP","bP" },
+            {"bT","bP","bP","bP","bP","bP","bP","bT" },
             {"bP","bP","bP","bP","bP","bP","bP","bP" },
             {"E","E","E","E","E","E","E","E" },
             {"E","E","E","E","E","E","E","E" },
             {"E","E","E","E","E","E","E","E" },
             {"E","E","E","E","E","E","E","E" },
             {"wP","wP","wP","wP","wP","wP","wP","wP" },
-            {"wP","wP","wP","wP","wP","wP","wP","wP" }};
+            {"wT","wP","wP","wP","wP","wP","wP","wT" }};
             //Aanmaken boardsquares array
             chessBoardUI = new BoardSquare[8, 8];
             //aanmaken mogelijke zetten array
@@ -66,6 +66,8 @@ namespace ChessGameRR
                             case "E": chessBoardUI[i, j].BackgroundImage = null; break;
                             case "wP": chessBoardUI[i, j].BackgroundImage = Image.FromFile("../../Pics/wP.png"); break;
                             case "bP": chessBoardUI[i, j].BackgroundImage = Image.FromFile("../../Pics/bP.png"); break;
+                            case "bT": chessBoardUI[i, j].BackgroundImage = Image.FromFile("../../Pics/bT.png"); break;
+                            case "wT": chessBoardUI[i, j].BackgroundImage = Image.FromFile("../../Pics/wT.png"); break;
                         }
                     }
                 }
@@ -124,9 +126,10 @@ namespace ChessGameRR
         //methode om te zien welk speelstuk is geactiveerd en mogelijke zetten van dat speelstuk
         public void SpeelStuk(string stuk, int x, int y)
         {
-            int c;
+            int i;
                     switch (stuk)
                     {
+                            //WITTE SPEELSTUKKEN
                             //witte pion
                         case "wP":
                             if (whiteTurn)
@@ -144,6 +147,65 @@ namespace ChessGameRR
                                         locations[x - 2, y] = 2;
                             }
                     break;
+                            //witte toren
+                        case "wT":
+                    if (whiteTurn)
+                    {
+                        for (i = x - 1; i > -1; i--)
+                            if (chessBoardIntel[i, y] == "E")
+                            { 
+                                locations[i, y] = 2; 
+                            }
+                            else
+                                if (chessBoardIntel[i, y].Substring(0, 1) == "w")
+                                    break;
+                                else
+                                { 
+                                    locations[i, y] = 2; 
+                                    break; 
+                                }
+                        for (i = x + 1; i < 8; i++)
+                            if (chessBoardIntel[i, y] == "E")
+                            { 
+                                locations[i, y] = 2; 
+                            }
+                            else
+                                if (chessBoardIntel[i, y].Substring(0, 1) == "w")
+                                    break;
+                                else
+                                { 
+                                    locations[i, y] = 2;
+                                    break; 
+                                }
+                        for (i = y - 1; i > -1; i--)
+                            if (chessBoardIntel[x, i] == "E")
+                            {
+                                locations[x, i] = 2; 
+                            }
+                            else
+                                if (chessBoardIntel[x, i].Substring(0, 1) == "w")
+                                    break;
+                                else
+                                { 
+                                    locations[x, i] = 2; 
+                                    break; 
+                                }
+                        for (i = y + 1; i < 8; i++)
+                            if (chessBoardIntel[x, i] == "E")
+                            { 
+                                locations[x, i] = 2; 
+                            }
+                            else
+                                if (chessBoardIntel[x, i].Substring(0, 1) == "w")
+                                    break;
+                                else
+                                { 
+                                    locations[x, i] = 2; 
+                                    break;
+                                }
+                    }
+                    break;
+                            //ZWARTE SPEELSTUKKEN
                             //zwarte pion                  
                         case "bP":
                     if (!whiteTurn)
@@ -160,7 +222,61 @@ namespace ChessGameRR
                             if (chessBoardIntel[x + 2, y] == "E")
                                 locations[x + 2, y] = 2;
                     }
-                        break;                                    
+                        break;
+                            //zwarte toren
+                        case "bT":
+                        if (!whiteTurn)
+                        {
+                            for (i = x - 1; i > -1; i--)
+                                if (chessBoardIntel[i, y] == "E")
+                                { locations[i, y] = 2; }
+                                else
+                                    if (chessBoardIntel[i, y].Substring(0, 1) == "b")
+                                        break;
+                                    else
+                                    {
+                                        locations[i, y] = 2;
+                                        break;
+                                    }
+                            for (i = x + 1; i < 8; i++)
+                                if (chessBoardIntel[i, y] == "E")
+                                {
+                                    locations[i, y] = 2;
+                                }
+                                else
+                                    if (chessBoardIntel[i, y].Substring(0, 1) == "b")
+                                        break;
+                                    else
+                                    {
+                                        locations[i, y] = 2;
+                                        break;
+                                    }
+                            for (i = y - 1; i > -1; i--)
+                                if (chessBoardIntel[x, i] == "E")
+                                {
+                                    locations[x, i] = 2;
+                                }
+                                else
+                                    if (chessBoardIntel[x, i].Substring(0, 1) == "b")
+                                        break;
+                                    else
+                                    {
+                                        locations[x, i] = 2;
+                                        break;
+                                    }
+                            for (i = y + 1; i < 8; i++)
+                                if (chessBoardIntel[x, i] == "E")
+                                { locations[x, i] = 2; }
+                                else
+                                    if (chessBoardIntel[x, i].Substring(0, 1) == "b")
+                                        break;
+                                    else
+                                    {
+                                        locations[x, i] = 2;
+                                        break;
+                                    }
+                        }
+                        break;
                     }
             //zorgt dat aangeklikte speelstuk wordt geactiveerd
                     locations[x, y] = 3;
