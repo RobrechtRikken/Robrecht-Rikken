@@ -1,4 +1,0 @@
-1. Speler drukt op de help knop. Het help scherm gaat open.
-2. Speler browsed tussen de verschillende tabbladen met de functies van het spel.
-3. Speler kan dan meer info lezen over de aangeklikte functie.
-4. Speler drukt op sluiten om terug naar het spel te gaan.
